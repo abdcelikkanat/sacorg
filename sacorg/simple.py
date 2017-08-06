@@ -178,6 +178,8 @@ class MCMC:
                     edges.append(chosen_matching[1])
                     switching_count += 1
 
+        # Sort the edge sequences
+        edges.sort()
         return edges, switching_count
 
     def get_sample(self, deg_seq, num_of_samples, iteration=-1, verbose=False):
@@ -194,11 +196,10 @@ class MCMC:
         time_start = time.clock()
 
         average_switching_count = 0.0
+        # Generate an initial graph
+        initial_e = generate_graph(deg_seq=deg_seq, method="Havel-Hakimi")
         edges = []
         for _ in range(num_of_samples):
-            # Generate an initial graph
-            initial_e = generate_graph(deg_seq=deg_seq, method="Havel-Hakimi")
-
             # Call the sample function
             e, switching_count = self.sample(initial_edges=initial_e,  iteration=iteration)
             # Append the output sample
@@ -206,7 +207,7 @@ class MCMC:
             # Count the total edge switchings
             average_switching_count += switching_count
 
-        # Average edge swithings
+            # Average edge swithings
             average_switching_count /= num_of_samples
 
         # Get the total computation time

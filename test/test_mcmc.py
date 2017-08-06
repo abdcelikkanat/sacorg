@@ -26,9 +26,12 @@ class Test(unittest.TestCase):
         d = d5
         total = myalg.count(deg_seq=d)
         number_of_samples = total*1000
+        print "Total: " + str(total)
         # ------------------------------------------
 
         samples = mcmc.get_sample(deg_seq=d, num_of_samples=number_of_samples, verbose=True)
+        #print samples
+        print "---------------------------------"
 
         histogram = {}
         for i in range(number_of_samples):
