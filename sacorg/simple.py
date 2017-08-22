@@ -591,15 +591,24 @@ class MyAlg:
         # Copy the sequence
         d = deg_seq.copy()
 
-        # If the sequence is empty
-        if len(d) == 0:
-            return 1
-        # if the sequence is not graphical
-        if is_graphical(d) is False:
-            return 0
-
         # Get initial time
         time_start = time.clock()
+
+        # If the sequence is empty
+        if len(d) == 0:
+            if verbose is True:
+                # Get the total computation time
+                time_elapsed = (time.clock() - time_start)
+                print "Total computation time : " + str(time_elapsed)
+            return 1
+
+        # if the sequence is not graphical
+        if is_graphical(d) is False:
+            if verbose is True:
+                # Get the total computation time
+                time_elapsed = (time.clock() - time_start)
+                print "Total computation time : " + str(time_elapsed)
+            return 0
 
         # Sort d in non-increasing order
         d = np.sort(d)[::-1]
@@ -628,12 +637,17 @@ class MyAlg:
         # Copy the sequence
         d = deg_seq.copy()
 
-        # If the sequence is empty or is not graphical
-        if len(d) == 0 or is_graphical(d) is False:
-            return []
-
         # Get initial time
         time_start = time.clock()
+
+        # If the sequence is empty or is not graphical
+        if len(d) == 0 or is_graphical(d) is False:
+            if verbose is True:
+                # Get the total computation time
+                time_elapsed = (time.clock() - time_start)
+                print "Total computation time : " + str(time_elapsed)
+            return []
+
 
         # Get the size of the sequence d
         n = len(d)
