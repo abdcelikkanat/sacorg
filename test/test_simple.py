@@ -3,6 +3,7 @@ import sys
 import os.path
 sys.path.append('../sacorg')
 from simple import MyAlg
+from simple import BlitzsteinDiaconis
 import numpy as np
 
 
@@ -98,6 +99,34 @@ class Test(unittest.TestCase):
         seq = np.asarray([2,4,2,4,5,4,1])
         result = myalg.count(deg_seq=seq, verbose=False)
         self.assertEqual(result, 12)
+
+    def test_blitzstein_diaconis_2regular(self):
+        """ Test the values for 2-regular graphs """
+        # www.oeis.org
+        # A001205 Number of undirected 2-regular labeled graphs
+        actual_results = [1, 0, 0, 1, 3, 12, 70, 465, 3507, 30016, 286884, 3026655, 34944085, 438263364, 5933502822,
+                          86248951243, 1339751921865, 22148051088480, 388246725873208, 7193423109763089,
+                          140462355821628771, 2883013994348484940]
+        bd = BlitzsteinDiaconis()
+        for n in range(0, len(actual_results)):
+            seq = np.ones(n, dtype=np.int)*2
+
+            estimate, std = bd.count(deg_seq=seq, num_of_samples=1000, verbose=False)
+            print "Actual : " + str(actual_results[n]) + " Estimate : " + str(estimate) + " Std : " + str(std)
+
+    def test_blitzstein_diaconis_3regular(self):
+        """ Test the values for 3-regular graphs """
+        # www.oeis.org
+        # A002829 Number of trivalent (or cubic) labeled graphs with 2n nodes
+        actual_results = [1, 0, 1, 70, 19355, 11180820, 11555272575, 19506631814670, 50262958713792825,
+                          187747837889699887800, 976273961160363172131825, 6840300875426184026353242750,
+                          62870315446244013091262178375075, 741227949070136911068308523257857500]
+        bd = BlitzsteinDiaconis()
+        for n in range(0, len(actual_results)):
+            seq = np.ones(2*n, dtype=np.int)*3
+
+            estimate, std = bd.count(deg_seq=seq, num_of_samples=1000, verbose=False)
+            print "Actual : " + str(actual_results[n]) + " Estimate : " + str(estimate) + " Std : " + str(std)
 
 if __name__ == "__main__":
     unittest.main()
