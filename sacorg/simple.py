@@ -1,7 +1,8 @@
 import time
 import random
 import numpy as np
-from utils import binomial, factorial
+from math import factorial
+from utils import binomial
 from itertools import permutations as perm
 
 def is_graphical(deg_seq, method="Erdos-Gallai", is_sorted=False):
