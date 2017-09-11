@@ -368,7 +368,7 @@ class BlitzsteinDiaconis:
 
 class MyAlg:
     """
-    Exact counting and uniform sampling algorithm from the set of simple graphs realizing the given degree sequence
+    Exact counting and uniform sampling algorithm from the set of simple graphs realizing a given degree sequence
     """
 
     def __init__(self):
@@ -648,7 +648,6 @@ class MyAlg:
                 time_elapsed = (time.clock() - time_start)
                 print "Total computation time : " + str(time_elapsed)
             return []
-
 
         # Get the size of the sequence d
         n = len(d)
