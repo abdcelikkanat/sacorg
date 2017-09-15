@@ -1,0 +1,4 @@
+numpy >= 1.11.0
+matplotlib >= 2.0.2
+networkx >= 1.11
+graphviz >= 0.5.1
