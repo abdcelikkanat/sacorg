@@ -1,2 +1,2 @@
 if __name__ == "__main__":
-    import sys
+    __all__ = ['utils', 'simple', 'bipartite']
