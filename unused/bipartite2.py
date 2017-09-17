@@ -1,6 +1,9 @@
 import time
+
 import numpy as np
-from utils import binomial
+
+from sacorg.utils.utils import binomial
+
 
 def is_bigraphic(p, q, method="Gale-Ryser"):
     """

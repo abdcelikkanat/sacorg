@@ -1,2 +1,2 @@
-if __name__ == "__main__":
-    __all__ = ['utils', 'simple', 'bipartite']
+from sacorg.algorithms.bipartite import *
+from sacorg.algorithms.simple import *

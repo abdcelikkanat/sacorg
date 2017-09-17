@@ -1,9 +1,12 @@
-import time
 import random
-import numpy as np
-from math import factorial
-from utils import binomial
+import time
 from itertools import permutations as perm
+from math import factorial
+
+import numpy as np
+
+from sacorg.utils.utils import binomial
+
 
 def is_graphical(deg_seq, method="Erdos-Gallai", is_sorted=False):
     """
