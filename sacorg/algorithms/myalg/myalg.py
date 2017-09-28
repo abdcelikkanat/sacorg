@@ -146,7 +146,7 @@ def sample(d, a, i, j, row_sum, sample_matrix, num_of_matrices, submatrix_count_
             upper_bound = min(min(r[j], d[i] - row_sum), gale_ryser_condition)
 
             # Sample uniformly from the set {0,1,...,num_of_matrices-1}
-            random_number = np.random.randint(num_of_matrices, dtype=np.int64)
+            random_number = rn.randint(0, num_of_matrices-1)
 
             # Choose a value between bounds
             total = 0

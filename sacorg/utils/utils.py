@@ -1,6 +1,7 @@
 import time
 import numpy as np
 from math import factorial
+import random as rn
 from itertools import permutations as perm
 
 

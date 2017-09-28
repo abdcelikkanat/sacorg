@@ -77,7 +77,7 @@ def N_sample(p, conj_q, i, j, row_sum, sample_matrix, num_of_matrices, submatrix
             gale_ryser_condition = np.sum(conj_q[0:j + 1]) - np.sum(p[i + 1:(i + 1) + j + 1])
             upper_bound = min(min(r[j], p[i] - row_sum), gale_ryser_condition)
             # Sample uniformly from the set {0,1,...,num_of_matrices-1}
-            random_number = np.random.randint(num_of_matrices, dtype=np.int64)
+            random_number = rn.randint(0,num_of_matrices-1)
 
             # Choose a value between bounds
             total = 0
